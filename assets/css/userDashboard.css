@@ -1,0 +1,565 @@
+/* user dashboard.css, css variables */
+:root {
+  /* Brand Colors */
+  --teal: #00b8c4;
+  --tealDark: #008a94;
+  --tealLight: #e0f8fa;
+  --tealMid: #00d4e0;
+
+  /* Neutral Colors */
+  --white: #ffffff;
+  --offWhite: #f7fafb;
+  --gray50: #f0f4f6;
+  --gray100: #e2e8ec;
+  --gray200: #c5d0d6;
+  --gray400: #8a9ba5;
+  --gray600: #4a5e68;
+  --gray800: #1e2d34;
+
+  /* Status Colors */
+  --red: #ff5a5a;
+  --green: #2ecc8a;
+  --amber: #ffa940;
+
+  /* Shadows */
+  --shadowSm: 0 1px 4px rgba(0, 0, 0, 0.06);
+  --shadowMd: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+  /* Border Radius */
+  --radius: 14px;
+  --radiusSm: 8px;
+}
+
+/* reset and base  */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: var(--offWhite);
+  color: var(--gray800);
+}
+
+/* navbar logged in user  */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray100);
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.navbarLogo img {
+  height: 40px;
+  width: auto;
+}
+
+.navbarBrand {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gray800);
+  margin: 0;
+}
+
+/* nav links */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navLink {
+  text-decoration: none;
+  color: var(--gray600);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: var(--radiusSm);
+  transition: all 0.2s;
+}
+
+.navLink:hover {
+  background: var(--tealLight);
+  color: var(--tealDark);
+}
+
+.navLink.active {
+  background: var(--tealLight);
+  color: var(--teal);
+}
+
+/* notification bell + avatar */
+.navbarBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navNotif {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--gray50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  font-size: 16px;
+}
+
+.notifDot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background: var(--red);
+  border-radius: 50%;
+  border: 2px solid var(--white);
+}
+
+.navAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* dashboard layout  */
+.dashLayout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: calc(100vh - 68px);
+}
+
+/* sidebar */
+.sidebar {
+  background: var(--white);
+  border-right: 1px solid var(--gray100);
+  padding: 24px 0;
+  position: sticky;
+  top: 68px;
+  height: calc(100vh - 68px);
+  overflow-y: auto;
+}
+
+/* user info block */
+.sidebarUser {
+  padding: 0 20px 20px;
+  border-bottom: 1px solid var(--gray100);
+  margin-bottom: 12px;
+}
+
+.sidebarAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.sidebarUserName {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray800);
+}
+
+.sidebarUserEmail {
+  font-size: 11px;
+  color: var(--gray400);
+}
+
+/* sidebar nav */
+.sidebarNav {
+  padding: 0 12px;
+}
+
+.sidebarSectionLabel {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--gray200);
+  padding: 12px 12px 4px;
+}
+
+.sidebarLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radiusSm);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray600);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  margin-bottom: 2px;
+}
+
+.sidebarLink:hover {
+  background: var(--tealLight);
+  color: var(--teal);
+}
+
+.sidebarLink.active {
+  background: var(--tealLight);
+  color: var(--teal);
+}
+
+.sidebarIcon {
+  font-size: 16px;
+}
+
+/* main content  */
+.dashMain {
+  padding: 32px;
+  background: var(--offWhite);
+}
+
+/* dashboard header */
+.dashHeader {
+  margin-bottom: 28px;
+}
+
+.dashHeader h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--gray800);
+}
+
+.dashHeader p {
+  font-size: 14px;
+  color: var(--gray400);
+  margin-top: 4px;
+}
+
+/* summary cards  */
+.summaryCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.summaryCard {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 22px;
+  border: 1px solid var(--gray100);
+  box-shadow: var(--shadowSm);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.summaryIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+/* icon background variants */
+.iconTeal {
+  background: var(--tealLight);
+}
+
+.iconGreen {
+  background: rgba(46, 204, 138, 0.1);
+}
+
+.iconAmber {
+  background: rgba(255, 169, 64, 0.1);
+}
+
+.iconRed {
+  background: rgba(255, 90, 90, 0.1);
+}
+
+.summaryLabel {
+  font-size: 12px;
+  color: var(--gray400);
+}
+
+.summaryValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gray800);
+}
+
+.summaryValueSm {
+  font-size: 18px;
+}
+
+/* section cards  */
+.sectionCard {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--gray100);
+  margin-bottom: 22px;
+}
+
+.sectionCardHeader {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--gray100);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sectionCardHeader h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--gray800);
+}
+
+.sectionCardBody {
+  padding: 20px 22px;
+}
+
+/* appointment items */
+.apptItem {
+  display: grid;
+  grid-template-columns: 48px 1fr auto auto;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--gray50);
+}
+
+.apptItem:last-child {
+  border-bottom: none;
+}
+
+.apptDateBox {
+  width: 48px;
+  height: 48px;
+  background: var(--tealLight);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.apptDay {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--teal);
+  line-height: 1;
+}
+
+.apptMonth {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--tealDark);
+  text-transform: uppercase;
+}
+
+.apptTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray800);
+}
+
+.apptMeta {
+  font-size: 12px;
+  color: var(--gray400);
+  margin-top: 2px;
+}
+
+.apptActions {
+  display: flex;
+  gap: 8px;
+}
+
+/* badges  */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badgeGreen {
+  background: rgba(46, 204, 138, 0.1);
+  color: var(--green);
+}
+
+.badgeAmber {
+  background: rgba(255, 169, 64, 0.1);
+  color: var(--amber);
+}
+
+.badgeGray {
+  background: var(--gray100);
+  color: var(--gray400);
+}
+
+.badgeRed {
+  background: rgba(255, 90, 90, 0.1);
+  color: var(--red);
+}
+
+.badgeTeal {
+  background: var(--tealLight);
+  color: var(--tealDark);
+}
+
+/* smal buttons  */
+.btnSm {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: "Segoe UI", sans-serif;
+  border: none;
+}
+
+.btnSmOutline {
+  border: 1.5px solid var(--gray100);
+  background: none;
+  color: var(--gray600);
+}
+
+.btnSmOutline:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.btnSmTeal {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.btnSmRed {
+  color: var(--red);
+  border-color: var(--red) !important;
+}
+
+/* booking form */
+.bookForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.bookForm .formGroup {
+  margin-bottom: 0;
+}
+
+.formGroupMt {
+  margin-top: 14px;
+}
+
+.formGroup {
+  margin-bottom: 16px;
+}
+
+.formLabel {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray600);
+  margin-bottom: 6px;
+}
+
+.formInput {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--gray100);
+  border-radius: var(--radiusSm);
+  font-size: 14px;
+  font-family: "Segoe UI", sans-serif;
+  color: var(--gray800);
+  background: var(--offWhite);
+  transition: all 0.2s;
+  outline: none;
+}
+
+.formInput:focus {
+  border-color: var(--teal);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(0, 184, 196, 0.1);
+}
+
+.formSelect {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--gray100);
+  border-radius: var(--radiusSm);
+  font-size: 14px;
+  font-family: "Segoe UI", sans-serif;
+  color: var(--gray800);
+  background: var(--offWhite);
+  transition: all 0.2s;
+  outline: none;
+}
+
+.formSelect:focus {
+  border-color: var(--teal);
+  background: var(--white);
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+/* confirm booking button */
+.btnSolid {
+  background: var(--teal);
+  color: var(--white);
+  border: none;
+  padding: 11px 26px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 8px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.btnSolid:hover {
+  background: var(--tealDark);
+}
+
+.btnSolidLg {
+  padding: 13px 30px;
+  font-size: 15px;
+  font-weight: 600;
+}

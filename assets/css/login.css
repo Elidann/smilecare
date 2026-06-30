@@ -1,0 +1,290 @@
+/* for login css  */
+
+/* css variables*/
+:root {
+  /* Brand Colors */
+  --teal: #00b8c4;
+  --tealDark: #008a94;
+  --tealLight: #e0f8fa;
+
+  /* Neutral Colors */
+  --white: #ffffff;
+  --offWhite: #f7fafb;
+  --gray100: #e2e8ec;
+  --gray400: #8a9ba5;
+  --gray600: #4a5e68;
+  --gray800: #1e2d34;
+
+  /* Status Colors */
+  --red: #ff5a5a;
+
+  /* Border Radius */
+  --radiusSm: 8px;
+}
+
+/* reset and base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: var(--white);
+  color: var(--gray800);
+}
+
+/* login page layout  */
+.authPage {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* left side teal branding  */
+.authLeft {
+  background: linear-gradient(150deg, var(--teal) 0%, var(--tealDark) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* decorative tooth watermark */
+.authLeft::before {
+  content: "🦷";
+  position: absolute;
+  font-size: 200px;
+  opacity: 0.08;
+  right: -30px;
+  bottom: -30px;
+}
+
+/* logo + brand name row */
+.authLeftLogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.authLeftLogo img {
+  height: 44px;
+  width: auto;
+}
+
+.authLeftLogo h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.authLeft h3 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.authLeft p {
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+/* feature bullets */
+.authFeatures {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 280px;
+}
+
+.authFeature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
+.authFeatureIcon {
+  font-size: 18px;
+}
+
+.authFeature span {
+  font-size: 13px;
+  color: var(--white);
+  font-weight: 500;
+}
+
+/* back to home link */
+.backToHome {
+  margin-top: 28px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.backToHome:hover {
+  color: var(--white);
+}
+
+/* login form right side  */
+.authRight {
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
+
+.authForm {
+  width: 100%;
+  max-width: 380px;
+}
+
+.authForm h3 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--gray800);
+  margin-bottom: 6px;
+}
+
+.authSubtitle {
+  font-size: 14px;
+  color: var(--gray400);
+  margin-bottom: 28px;
+}
+
+/* form elements  */
+.formGroup {
+  margin-bottom: 18px;
+}
+
+.formLabel {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray600);
+  margin-bottom: 6px;
+}
+
+.formInput {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--gray100);
+  border-radius: var(--radiusSm);
+  font-size: 14px;
+  color: var(--gray800);
+  background: var(--offWhite);
+  transition: all 0.2s;
+  outline: none;
+}
+
+.formInput:focus {
+  border-color: var(--teal);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(0, 184, 196, 0.1);
+}
+
+/* input with icon */
+.inputIconWrap {
+  position: relative;
+}
+
+.inputIconWrap .formInput {
+  padding-left: 40px;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+  color: var(--gray400);
+}
+
+/* remember me + forgot password row */
+.formRow {
+  display: flex;
+}
+
+.formRowSpaced {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--gray600);
+  cursor: pointer;
+}
+
+.checkboxLabel input {
+  accent-color: var(--teal);
+}
+
+.forgotLink {
+  font-size: 13px;
+  color: var(--teal);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.forgotLink:hover {
+  text-decoration: underline;
+}
+
+/* buttons */
+.btnFull {
+  width: 100%;
+  padding: 13px;
+  background: var(--teal);
+  color: var(--white);
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 6px;
+}
+
+.btnFull:hover {
+  background: var(--tealDark);
+}
+
+/* switch to register  */
+.authSwitch {
+  text-align: center;
+  font-size: 13px;
+  color: var(--gray400);
+  margin-top: 18px;
+}
+
+.authSwitch a {
+  color: var(--teal);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.authSwitch a:hover {
+  text-decoration: underline;
+}
